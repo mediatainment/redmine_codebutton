@@ -1,4 +1,4 @@
-Redmine::Plugin.register :code_highlight do
+Redmine::Plugin.register :redmine_codebutton do
   name 'Code Highlight plugin'
   author 'Jan Jezek'
   description 'This is a plugin for Redmine. It adds a CodeHighlight Button to the editor, which wraps a code around selected text'

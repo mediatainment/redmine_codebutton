@@ -23,24 +23,24 @@ module WikiCodehighlightHelperPatch
 
     base.class_eval do
       unloadable # Send unloadable so it will not be unloaded in development    
-      alias_method_chain :heads_for_wiki_formatter, :codehighlight
+      alias_method_chain :heads_for_wiki_formatter, :redmine_codebutton
     end
   end
 
 end
 
 module HelperMethodsWikiExtensions
-  def heads_for_wiki_formatter_with_codehighlight
-    heads_for_wiki_formatter_without_codehighlight
+  def heads_for_wiki_formatter_with_redmine_codebutton
+    heads_for_wiki_formatter_without_redmine_codebutton
     return if ie6_or_ie7?
 
-    unless @heads_for_wiki_codehighlight_included
+    unless @heads_for_wiki_redmine_codebutton_included
       content_for :header_tags do
-        o = javascript_include_tag('wiki-codehighlight.js', :plugin => 'code_highlight')
-        o << stylesheet_link_tag('wiki-codehighlight.css', :plugin => 'code_highlight')
+        o = javascript_include_tag('wiki-codehighlight.js', :plugin => 'redmine_codebutton')
+        o << stylesheet_link_tag('wiki-codehighlight.css', :plugin => 'redmine_codebutton')
         o.html_safe
       end
-      @heads_for_wiki_codehighlight_included = true
+      @heads_for_wiki_redmine_codebutton_included = true
     end
   end
   private
