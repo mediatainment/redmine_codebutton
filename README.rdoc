@@ -1,3 +1,25 @@
 = code_highlight
 
-Description goes here
+This is an small extension for redmine, which adds a code highlight button to the default editor.
+
+Select a text and press the "code"-button, choose your desired language and 
+
+GET RID OF WRITING:
+    <pre>
+		<code class="ruby">
+			MyClass.new(:blah)
+		</code>
+	</pre>
+
+It's a requested feature on redmine.org and I decided to try to implement it for my needs. Thankfully Felix S. has provided his code. I used the "redmine_wiki_extensions" which guides me through the process.
+
+http://www.redmine.org/issues/14937
+
+I also wanna thank Andriy L. which offers me the first hint for figuring out how to implement.
+
+http://stackoverflow.com/questions/19378096/syntax-highlight-in-redmine 
+
+
+== Installation
+
+Clone or download this repo into your **redmine_root/plugins/** folder
