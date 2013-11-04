@@ -29,4 +29,4 @@ or
 
 add it as a submodule of git:
 
-> git submodule add git://github.com/mediatainment/redmine-codebutton.git plugins/redmine-codebutton
+> git submodule add git://github.com/mediatainment/redmine_codebutton.git plugins/redmine_codebutton
