@@ -23,3 +23,9 @@ http://stackoverflow.com/questions/19378096/syntax-highlight-in-redmine
 == Installation
 
 Clone or download this repo into your **redmine_root/plugins/** folder
+
+or
+
+add it as a submodule of git:
+
+> git submodule add git://github.com/mediatainment/redmine-codebutton.git plugins/redmine-codebutton
