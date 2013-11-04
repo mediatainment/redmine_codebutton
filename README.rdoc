@@ -30,3 +30,9 @@ or
 add it as a submodule of git:
 
 > git submodule add git://github.com/mediatainment/redmine_codebutton.git plugins/redmine_codebutton
+
+
+You may have to run to provide the assets
+
+    rake redmine:plugins
+    
