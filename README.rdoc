@@ -34,5 +34,5 @@ add it as a submodule of git:
 
 You may have to run to provide the assets
 
-    rake redmine:plugins
+    rake redmine:plugins:migrate RAILS_ENV=production
     
