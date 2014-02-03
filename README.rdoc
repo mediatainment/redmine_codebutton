@@ -23,16 +23,14 @@ http://stackoverflow.com/questions/19378096/syntax-highlight-in-redmine
 
 == Installation
 
-Clone or download this repo into your **redmine_root/plugins/** folder
+* Clone or download this repo into your **redmine_root/plugins/** folder
+    $ git clone https://github.com/mediatainment/redmine_codebutton.git
 
-or
+* or add it as a submodule of git:
+    $ git submodule add git://github.com/mediatainment/redmine_codebutton.git plugins/redmine_codebutton
 
-add it as a submodule of git:
+* You may have to run the plugin rake task to provide the assets (from the Redmine root directory):
 
-> git submodule add git://github.com/mediatainment/redmine_codebutton.git plugins/redmine_codebutton
+    $ rake redmine:plugins:migrate RAILS_ENV=production
 
-
-You may have to run to provide the assets
-
-    rake redmine:plugins:migrate RAILS_ENV=production
-    
+* Restart redmine
