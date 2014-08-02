@@ -10,7 +10,7 @@ jsToolBar.prototype.elements.codehighlight = {
             var languageOptions = [];
 	    var select = "";
             for (var i = 0; i < codeRayLanguages.length; i++) {
-		if ( codeRayLanguages[i].indexOf("sql") > -1 )
+		if ( codeRayLanguages[i].indexOf("xml") > -1 )
 			select = "selected" ;
 		else 
 		        select = "";
