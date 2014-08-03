@@ -8,13 +8,13 @@ jsToolBar.prototype.elements.codehighlight = {
             var codeRayLanguages = ["c", "clojure", "cpp", "css", "delphi", "diff", "erb", "groovy", "haml", "html", "java", "javascript", "json", "php", "python", "ruby", "sql", "text", "xml", "yaml"];
 
             var languageOptions = [];
-	    var select = "";
+	         var select = "";
             for (var i = 0; i < codeRayLanguages.length; i++) {
-		if ( codeRayLanguages[i].indexOf("xml") > -1 )
-			select = "selected" ;
-		else 
+              if ( codeRayLanguages[i].indexOf(jsToolBar.prototype.codehighlightDefaultLanguage) > -1 )
+                 select = "selected" ;
+              else
 		        select = "";
-		languageOptions[i] = "<option " + select + ">" + codeRayLanguages[i] + "</option>";
+		        languageOptions[i] = "<option " + select + ">" + codeRayLanguages[i] + "</option>";
             }
             var languageSelect = "<select>" + languageOptions.join("") + "</select>";
             var hideJs = "hideModal(this);$('#toolbar-code-options').remove();return false;";
