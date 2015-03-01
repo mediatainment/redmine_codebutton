@@ -1,0 +1,4 @@
+<p>
+  <label><%= l(:settings_default_label) %>:</label>
+  <%= select_tag "settings[default_language]", options_for_select(["c", "clojure", "cpp", "css", "delphi", "diff", "erb", "groovy", "haml", "html", "java", "javascript", "json", "php", "python", "ruby", "sql", "text", "xml", "yaml"], @settings['default_language']), include_blank: true %>
+</p>

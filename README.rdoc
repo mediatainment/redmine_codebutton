@@ -11,6 +11,8 @@ GET RID OF WRITING:
             MyClass.new(:blah)
         </code>
     <pre>
+    
+This plugin also has a _Settings_ page where you can configure the desired default language for the dropdown menu.
 
 It's a requested feature on redmine.org and I decided to try to implement it for my needs. Thankfully Felix S. has provided his code. I used the "redmine_wiki_extensions" which guides me through the process.
 
