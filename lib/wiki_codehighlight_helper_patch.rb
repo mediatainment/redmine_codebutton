@@ -38,8 +38,10 @@ module HelperMethodsWikiExtensions
       content_for :header_tags do
         o = javascript_include_tag('wiki-codehighlight.js', :plugin => 'redmine_codebutton')
         o << stylesheet_link_tag('wiki-codehighlight.css', :plugin => 'redmine_codebutton')
-        o << javascript_tag("jsToolBar.prototype.codehighlightDefaultLanguage = '" + Setting.plugin_redmine_codebutton['default_language'] + "';")
-        o.html_safe
+		if Setting.plugin_redmine_codebutton['default_language']
+          o << javascript_tag("jsToolBar.prototype.codehighlightDefaultLanguage = '" + Setting.plugin_redmine_codebutton['default_language'] + "';")
+        end
+		o.html_safe
       end
       @heads_for_wiki_redmine_codebutton_included = true
     end
