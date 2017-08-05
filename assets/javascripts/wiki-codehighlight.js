@@ -17,8 +17,23 @@ codehighlight = {
 		        languageOptions[i] = "<option " + select + ">" + codeRayLanguages[i] + "</option>";
             }
             var languageSelect = "<select>" + languageOptions.join("") + "</select>";
+
+            var selectVal = "\' + $(this).closest(\'div\').find(\'select\').first().val() + \'";
+            var encloseContent = "";
+            if(String(jsToolBar.prototype.elements.strong.fn.wiki).match(/\*/g).length == 1) {
+              /* Wiki formatter: Textile */
+              encloseContent = "\'<pre><code class=&quot;"+selectVal+"&quot;>\\n\', \'\\n</code></pre>\'";
+            } else {
+              /* Wiki formatter: Markdown */
+              encloseContent = "\'~~~ "+selectVal+"\\n\', \'\\n~~~\'";
+            }
+
             var hideJs = "hideModal(this);$('#toolbar-code-options').remove();return false;";
-            var questionBox = '<div id="toolbar-code-options" style="display: none"><form action="#"><h3 class="title">Highlight code for</h3><p><label>Language ' + languageSelect + '</label></p><p class="buttons"><input onclick="precodeTextField.encloseLineSelection(\'<pre><code class=&quot;\' + $(this).closest(\'div\').find(\'select\').first().val() + \'&quot;>\\n\', \'\\n</code></pre>\');'+hideJs+'" type="submit" value="Insert code"><input onclick="'+hideJs+'" type="button" value="Cancel"></p></form></div>';
+            var questionBox = '<div id="toolbar-code-options" style="display: none">\
+              <form action="#"><h3 class="title">Highlight code for</h3>\
+              <p><label>Language ' + languageSelect + '</label></p><p class="buttons">\
+              <input onclick="precodeTextField.encloseLineSelection('+encloseContent+');'+hideJs+'" type="submit" value="Insert code">\
+              <input onclick="'+hideJs+'" type="button" value="Cancel"></p></form></div>';
 
             $('#main').append(questionBox);
             showModal('toolbar-code-options', '200px');
