@@ -22,7 +22,7 @@ module WikiCodehighlightHelperPatch
     base.send(:include, HelperMethodsWikiExtensions)
 
     base.class_eval do
-      unloadable # Send unloadable so it will not be unloaded in development    
+      unloadable # Send unloadable so it will not be unloaded in development
       alias_method_chain :heads_for_wiki_formatter, :redmine_codebutton
     end
   end
@@ -38,10 +38,23 @@ module HelperMethodsWikiExtensions
       content_for :header_tags do
         o = javascript_include_tag('wiki-codehighlight.js', :plugin => 'redmine_codebutton')
         o << stylesheet_link_tag('wiki-codehighlight.css', :plugin => 'redmine_codebutton')
-		if Setting.plugin_redmine_codebutton['default_language']
-          o << javascript_tag("jsToolBar.prototype.codehighlightDefaultLanguage = '" + Setting.plugin_redmine_codebutton['default_language'] + "';")
+
+        settings = ""
+        if Setting.plugin_redmine_codebutton['default_language']
+          settings << "jsToolBar.prototype.codehighlightDefaultLanguage = '" + Setting.plugin_redmine_codebutton['default_language'] + "';"
         end
-		o.html_safe
+        if Setting.text_formatting == "markdown"
+          markdown_syntax = Setting.plugin_redmine_codebutton['markdown_syntax'].to_s
+          if markdown_syntax.empty?
+            markdown_syntax = '~~~'
+          end
+          settings << "jsToolBar.prototype.codehighlightMarkdownSyntax = '" + markdown_syntax + "';"
+        end
+        unless settings.empty?
+          o << javascript_tag(settings)
+        end
+
+        o.html_safe
       end
       @heads_for_wiki_redmine_codebutton_included = true
     end
@@ -54,5 +67,3 @@ module HelperMethodsWikiExtensions
 
 
 end
-
-

@@ -7,7 +7,8 @@ Redmine::Plugin.register :redmine_codebutton do
   author_url 'http://www.mediatainment-productions.com'
 
   settings :default => {
-    'default_language' => false
+    'default_language' => false,
+    'markdown_syntax' => '~~~'
   }, :partial => 'redmine_codebutton_settings'
 end
 

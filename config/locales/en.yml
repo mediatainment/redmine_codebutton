@@ -1,3 +1,4 @@
 # English strings go here for Rails i18n
 en:
   settings_default_label: "Default code language"
+  settings_markdown_syntax: "Markdown code block syntax"

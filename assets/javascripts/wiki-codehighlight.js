@@ -25,7 +25,8 @@ codehighlight = {
               encloseContent = "\'<pre><code class=&quot;"+selectVal+"&quot;>\\n\', \'\\n</code></pre>\'";
             } else {
               /* Wiki formatter: Markdown */
-              encloseContent = "\'~~~ "+selectVal+"\\n\', \'\\n~~~\'";
+              var syntax = jsToolBar.prototype.codehighlightMarkdownSyntax;
+              encloseContent = "\'"+syntax+" "+selectVal+"\\n\', \'\\n"+syntax+"\'";
             }
 
             var hideJs = "hideModal(this);$('#toolbar-code-options').remove();return false;";
