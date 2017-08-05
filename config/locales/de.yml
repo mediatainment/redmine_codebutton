@@ -1,3 +1,4 @@
 # German strings go here for Rails i18n
 de:
   settings_default_label: "Standard-Sprache"
+  settings_markdown_syntax: "Markdown Code-Block-Syntax"

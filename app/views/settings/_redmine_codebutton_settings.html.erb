@@ -2,3 +2,9 @@
   <label><%= l(:settings_default_label) %>:</label>
   <%= select_tag "settings[default_language]", options_for_select(["bash", "c", "clojure", "cpp", "css", "delphi", "diff", "erb", "groovy", "haml", "html", "java", "javascript", "json", "php", "python", "ruby", "sql", "text", "xml", "yaml"], @settings['default_language']), include_blank: true %>
 </p>
+<%if Setting.text_formatting == "markdown"%>
+  <p>
+    <label><%= l(:settings_markdown_syntax) %>:</label>
+    <%= select_tag "settings[markdown_syntax]", options_for_select({ "~~~ (Redmine)" => "~~~", "``` (GitHub)" => "```"}, @settings['markdown_syntax']), include_blank: false %>
+  </p>
+<%end%>
