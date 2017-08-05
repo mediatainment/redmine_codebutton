@@ -1,4 +1,4 @@
-jsToolBar.prototype.elements.codehighlight = {
+codehighlight = {
     type: 'button',
     title: 'Highlighted code',
     fn: {
@@ -8,7 +8,7 @@ jsToolBar.prototype.elements.codehighlight = {
             var codeRayLanguages = ["bash", "c", "clojure", "cpp", "css", "delphi", "diff", "erb", "groovy", "haml", "html", "java", "javascript", "json", "php", "python", "ruby", "sql", "text", "xml", "yaml"];
 
             var languageOptions = [];
-	         var select = "";
+	          var select = "";
             for (var i = 0; i < codeRayLanguages.length; i++) {
               if ( codeRayLanguages[i].indexOf(jsToolBar.prototype.codehighlightDefaultLanguage) > -1 )
                  select = "selected" ;
@@ -25,4 +25,12 @@ jsToolBar.prototype.elements.codehighlight = {
             $('#toolbar-code-options select').focus();
         }
     }
+}
+
+/* Redmine >= 3.3: replace native code highlight button with our button */
+if(jsToolBar.prototype.elements.precode !== undefined) {
+  jsToolBar.prototype.elements.precode = codehighlight;
+} else {
+  /* Redmine <= 3.2: Add our button at the the pf the list */
+  jsToolBar.prototype.elements.codehighlight = codehighlight;
 }
