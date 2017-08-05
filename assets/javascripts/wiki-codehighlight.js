@@ -5,7 +5,7 @@ jsToolBar.prototype.elements.codehighlight = {
         wiki: function() {
             precodeTextField = this;
 
-            var codeRayLanguages = ["c", "clojure", "cpp", "css", "delphi", "diff", "erb", "groovy", "haml", "html", "java", "javascript", "json", "php", "python", "ruby", "sql", "text", "xml", "yaml"];
+            var codeRayLanguages = ["bash", "c", "clojure", "cpp", "css", "delphi", "diff", "erb", "groovy", "haml", "html", "java", "javascript", "json", "php", "python", "ruby", "sql", "text", "xml", "yaml"];
 
             var languageOptions = [];
 	         var select = "";
