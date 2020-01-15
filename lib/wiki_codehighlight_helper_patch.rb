@@ -23,7 +23,12 @@ module WikiCodehighlightHelperPatch
 
     base.class_eval do
       unloadable # Send unloadable so it will not be unloaded in development
-      alias_method_chain :heads_for_wiki_formatter, :redmine_codebutton
+      if Rails.version < '5.0.0'
+        alias_method_chain :heads_for_wiki_formatter, :redmine_codebutton
+      else
+        alias_method :heads_for_wiki_formatter_without_redmine_codebutton, :heads_for_wiki_formatter
+        alias_method :heads_for_wiki_formatter, :heads_for_wiki_formatter_with_redmine_codebutton
+      end
     end
   end
 
